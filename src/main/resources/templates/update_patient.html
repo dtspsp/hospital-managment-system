@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование пациента</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h2>Редактировать пациента</h2>
+    <form th:action="@{/updatePatient}" th:object="${patient}" method="post">
+        <input type="hidden" th:field="*{id}" />
+        <div class="form-group">
+            <label for="fullName">ФИО</label>
+            <input type="text" class="form-control" th:field="*{fullName}" placeholder="Введите ФИО" required>
+        </div>
+        <div class="form-group">
+            <label for="age">Возраст</label>
+            <input type="number" class="form-control" th:field="*{age}" placeholder="Введите возраст" required>
+        </div>
+        <div class="form-group">
+            <label for="gender">Пол</label>
+            <select class="form-control" th:field="*{gender}">
+                <option value="Мужской">Мужской</option>
+                <option value="Женский">Женский</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="disease">Болезнь</label>
+            <input type="text" class="form-control" th:field="*{disease}" placeholder="Введите название болезни" required>
+        </div>
+        <div class="form-group">
+            <label for="admissionDate">Дата поступления</label>
+            <input type="date" class="form-control" th:field="*{admissionDate}" required>
+        </div>
+        <div class="form-group">
+            <label for="dischargeDate">Дата выписки</label>
+            <input type="date" class="form-control" th:field="*{dischargeDate}">
+        </div>
+        <button type="submit" class="btn btn-success">Сохранить изменения</button>
+    </form>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавление пациента</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+        body {
+            background-color: #f0f0f0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .container {
+            padding-top: 50px;
+        }
+        .dark-theme {
+            background-color: #343a40;
+            color: #ffffff;
+        }
+        .dark-theme .container {
+            background-color: #495057;
+            border-radius: 5px;
+            padding: 20px;
+        }
+        .dark-theme input,
+        .dark-theme select,
+        .dark-theme button {
+            background-color: #6c757d;
+            color: #ffffff;
+            border: 1px solid #6c757d;
+        }
+        .dark-theme input::placeholder {
+            color: #dee2e6;
+        }
+        .dark-theme input:focus,
+        .dark-theme select:focus,
+        .dark-theme button:focus {
+            background-color: #5a6268;
+            border-color: #545b62;
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+    <button class="btn btn-dark" id="themeToggle"><i class="fas fa-moon"></i></button>
+    <h2>Добавить нового пациента</h2>
+    <form action="/savePatient" method="post">
+        <div class="form-group">
+            <label for="fullName">ФИО</label>
+            <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Введите ФИО" required>
+        </div>
+        <div class="form-group">
+            <label for="age">Возраст</label>
+            <input type="number" class="form-control" id="age" name="age" placeholder="Введите возраст" required>
+        </div>
+        <div class="form-group">
+            <label for="gender">Пол</label>
+            <select class="form-control" id="gender" name="gender">
+                <option>Мужской</option>
+                <option>Женский</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="disease">Болезнь</label>
+            <input type="text" class="form-control" id="disease" name="disease" placeholder="Введите название болезни" required>
+        </div>
+        <div class="form-group">
+            <label for="admissionDate">Дата поступления</label>
+            <input type="date" class="form-control" id="admissionDate" name="admissionDate" required>
+        </div>
+        <div class="form-group">
+            <label for="dischargeDate">Дата выписки</label>
+            <input type="date" class="form-control" id="dischargeDate" name="dischargeDate">
+        </div>
+        <button type="submit" class="btn btn-primary">Добавить</button>
+    </form>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    // Переключение темы
+    const themeToggleButton = document.getElementById('themeToggle');
+    themeToggleButton.addEventListener('click', function() {
+        document.body.classList.toggle('dark-theme');
+    });
+</script>
+</body>
+</html>
